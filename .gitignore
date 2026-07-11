@@ -21,5 +21,9 @@ Thumbs.db
 # 服务器日志
 server.log
 
+# 工具缓存
+.omo/
+.codegraph/
+
 # 本地配置
 *.local
