@@ -1,0 +1,25 @@
+# 项目特定文件
+*.zip
+*.rar
+*.log
+
+# 编辑器和IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+
+# 服务器日志
+server.log
+
+# 本地配置
+*.local

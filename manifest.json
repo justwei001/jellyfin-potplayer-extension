@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Jellyfin External Player",
+    "version": "1.0.0",
+    "description": "在 Jellyfin 中添加按钮，使用 PotPlayer 播放视频",
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://*/web/index.html*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}

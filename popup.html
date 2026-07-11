@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { width: 420px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        h2 { margin: 0 0 16px 0; font-size: 16px; color: #333; }
+        .setting { margin-bottom: 12px; }
+        label { display: block; margin-bottom: 4px; font-size: 14px; color: #555; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+        .checkbox { display: flex; align-items: center; gap: 8px; }
+        .checkbox input { margin: 0; }
+        button { width: 100%; padding: 10px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 12px; }
+        button:hover { background-color: #0055aa; }
+        .info { margin-top: 12px; padding: 8px; background-color: #fff3cd; border-radius: 4px; font-size: 12px; color: #856404; }
+        .status { margin-top: 8px; padding: 8px; border-radius: 4px; font-size: 12px; }
+        .status.success { background-color: #d4edda; color: #155724; }
+        .status.error { background-color: #f8d7da; color: #721c24; }
+        .hint { font-size: 11px; color: #888; margin-top: 2px; }
+    </style>
+</head>
+<body>
+    <h2>Jellyfin External Player</h2>
+    
+    <div class="setting">
+        <label for="potplayerPath">PotPlayer 路径：</label>
+        <input type="text" id="potplayerPath" placeholder="E:\PotPlayer\PotPlayerMini64.exe">
+    </div>
+
+    <div class="setting">
+        <label>NAS 路径映射（可选，推荐配网盘映射实现本地播放）：</label>
+        <input type="text" id="nasPathPrefix" placeholder="NAS路径前缀, 如: /volume1/video/">
+        <input type="text" id="localPathPrefix" placeholder="本地路径前缀, 如: Z:\" style="margin-top:4px;">
+        <div class="hint">NAS路径前缀 → 本地路径前缀。不配置则使用HTTP代理模式（可能不稳定）</div>
+    </div>
+    
+    <div class="setting">
+        <div class="checkbox">
+            <input type="checkbox" id="enabled" checked>
+            <label for="enabled">启用扩展</label>
+        </div>
+    </div>
+    
+    <button id="saveBtn">保存设置</button>
+    
+    <div id="status"></div>
+    
+    <div class="info">
+        使用前请先运行本地服务器（start_server.bat）<br>
+        推荐在 NAS 上开启 SMB 共享，将媒体文件夹映射为本地盘符。
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
