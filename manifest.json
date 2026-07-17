@@ -11,9 +11,9 @@
     ],
     "content_scripts": [
         {
-            "matches": ["*://*/web/index.html*"],
+            "matches": ["<all_urls>"],
             "js": ["content.js"],
-            "run_at": "document_end"
+            "run_at": "document_idle"
         }
     ],
     "action": {
