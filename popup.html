@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  Jellyfin External Player - PotPlayer 扩展弹窗设置界面
+  用户在此页面配置 PotPlayer 路径、NAS 路径映射等参数
+  ============================================================
+-->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -22,11 +28,13 @@
 <body>
     <h2>Jellyfin External Player</h2>
     
+    <!-- PotPlayer 路径配置 -->
     <div class="setting">
         <label for="potplayerPath">PotPlayer 路径：</label>
         <input type="text" id="potplayerPath" placeholder="E:\PotPlayer\PotPlayerMini64.exe">
     </div>
 
+    <!-- NAS 路径映射配置（可选） -->
     <div class="setting">
         <label>NAS 路径映射（可选，推荐配网盘映射实现本地播放）：</label>
         <input type="text" id="nasPathPrefix" placeholder="NAS路径前缀, 如: /volume1/video/">
@@ -34,6 +42,7 @@
         <div class="hint">NAS路径前缀 → 本地路径前缀。不配置则使用HTTP代理模式（可能不稳定）</div>
     </div>
     
+    <!-- 扩展启用开关 -->
     <div class="setting">
         <div class="checkbox">
             <input type="checkbox" id="enabled" checked>
@@ -41,10 +50,13 @@
         </div>
     </div>
     
+    <!-- 保存按钮 -->
     <button id="saveBtn">保存设置</button>
     
+    <!-- 操作状态提示 -->
     <div id="status"></div>
     
+    <!-- 使用说明 -->
     <div class="info">
         使用前请先运行本地服务器（start_server.bat）<br>
         推荐在 NAS 上开启 SMB 共享，将媒体文件夹映射为本地盘符。
